@@ -91,8 +91,7 @@ interface TVShow {
 ## 📊 Evaluation Criteria
 
 - Functionality: The code meets all the functional requirements.
-Code Quality: Code is clean, modular, and follows best practices for TypeScript development.
+- Code Quality: Code is clean, modular, and follows best practices for TypeScript development.
 - Design: The API, database schema, and caching strategy are well-designed for scalability and performance.
 - Testing: Integration tests are comprehensive and demonstrate an understanding of testing strategies and coverage.
-
-**Overall: Approach this assignment with high quality as if you are building it for production deployment.**
+- Overall: Approach this assignment with high quality as if you are building it for production deployment
