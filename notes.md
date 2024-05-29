@@ -17,6 +17,11 @@ $ nest g resource movie
 $ nest g resource tv-show
 $ nest g resource artist
 
+# connecting to sb
+# create a mongodb databse and get ready with connection string
+$ npm install @nestjs/mongoose mongoose
+
+
 #Running application
 $ npm run start:dev ## watch mode
 $ npm run start
