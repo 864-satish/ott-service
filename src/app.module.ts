@@ -6,11 +6,10 @@ import { UserModule } from './user/user.module';
 import { MovieModule } from './movie/movie.module';
 import { TvShowModule } from './tv-show/tv-show.module';
 import { ArtistModule } from './artist/artist.module';
-import { MembersController } from './members/members.controller';
 
 @Module({
   imports: [MyListModule, UserModule, MovieModule, TvShowModule, ArtistModule],
-  controllers: [AppController, MembersController],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
