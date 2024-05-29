@@ -8,8 +8,14 @@ import { TvShowModule } from './tv-show/tv-show.module';
 import { ArtistModule } from './artist/artist.module';
 
 @Module({
-  imports: [MyListModule, UserModule, MovieModule, TvShowModule, ArtistModule],
+  imports: [
+    MyListModule,
+    UserModule,
+    MovieModule,
+    TvShowModule,
+    ArtistModule
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }

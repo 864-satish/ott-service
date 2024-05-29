@@ -68,4 +68,11 @@ $ npm --version
 
 $ git --version
 git version 2.42.0
+
+$ heroku create  
+
+# create Procfile which contains
+# web: node dist/main.js
+
+$ git push heroku master
 ```

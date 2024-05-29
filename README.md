@@ -62,64 +62,33 @@ Introducing the "My List" feature on STAGE OTT, enabling users to save their fav
     ```bash
     # unit tests
     npm run test
-
-    # test coverage
-    npm run test:cov
-
-    # e2e tests
-    npm run test:e2e
-
     ```
 
-## REST API Endpoints | TO BE CHANGED
+## REST API Endpoints 
 
-### Add a Team Member (Admin Only)
-
-```bash
-curl --location 'http://localhost:3002/member/' \
---header 'Authorization: <auth_token>' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "firstName": "Nitish",
-    "lastName": "Kumar",
-    "email": "nitish.k@thena.ai",
-    "mobileNumber": "+917248485901",
-    "role": "ADMIN"
-}'
-```
-
-### Update a Team Member (Admin Only)
-```bash
-curl --location --request PUT 'http://localhost:3002/member/<id>' \
---header 'Authorization: <auth_token>' \
---header 'Content-Type: application/json' \
---data '{
-    "id": "<id>",
-    "firstName": "Nitish",
-    "lastName": "Updated "
-}'
-```
-
-### Delete a Team Member (Admin Only)
+## About My List | ott-service
 
 ```bash
-curl --location --request DELETE 'http://localhost:3002/member/<id>' \
---header 'Authorization: <auth_token>'
+curl --location 'https://ott-service-e3d396793179.herokuapp.com/'
 ```
 
-### Retrieve a Specific Team Member with id (User & Admin)
+### Add to My List
+
 ```bash
-curl --location 'http://localhost:3002/member/<id>' \
---header 'Authorization: <auth_token>'
+curl --location --request POST 'https://ott-service-e3d396793179.herokuapp.com/my-list/'
 ```
 
-### Retrieve All Team Members (User & Admin)
+### Remove from My List
+
 ```bash
-curl --location 'http://localhost:3002/member/' \
---header 'Authorization: <auth_token>'
+curl --location --request DELETE 'https://ott-service-e3d396793179.herokuapp.com/my-list/1001'
 ```
 
+### List My items
+```bash
+curl --location 'https://ott-service-e3d396793179.herokuapp.com/my-list/<userId>'
+```
 
 ### To be added
-- APIs to login/logout for Users and Admins 
+- APIs to login/logout for Users 
 - JWT or oAuth authentication for all endpoints
