@@ -28,8 +28,8 @@ export class MyListController {
   async getMyList(
     @Param('userId', ParseUUIDPipe) userId: string,
     @Query() query: MyListQuery,
-     @Res() res
-    ) {
+    @Res() res
+  ) {
     try {
       const myList = await this.myListService.getMyList(userId, query);
       return res.status(HttpStatus.OK).json(myList);

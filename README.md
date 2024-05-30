@@ -42,9 +42,10 @@ Introducing the "My List" feature on STAGE OTT, enabling users to save their fav
    Ensure MongoDB is running. Create a `.env` file in the root directory and add the following:
     ```env
     NODE_ENV=local
-    ADMIN_AUTH_TOKEN=<auth_token>
-    USER_AUTH_TOKEN=Bearer O2NZS9XWA1Q3MTLGP7E8K5Y4DR6FBU
-    MONGO_URI=mongo-db-url
+    PORT=3002
+    STATIC_AUTH_TOKEN=<auth_token>
+    MONGO_DB_HOST=mongo-db-connection-string
+    MONGO_DB_NAME=databse_name
     ```
 - Note: Please change these sample auth-token
 
@@ -74,7 +75,8 @@ curl --location 'https://ott-service-e3d396793179.herokuapp.com/'
 
 ### List My items
 ```bash
-curl --location 'https://ott-service-e3d396793179.herokuapp.com/my-list/e5bf94e2-11be-4004-98fd-28c2f8284f11'
+curl --location 'https://ott-service-e3d396793179.herokuapp.com/my-list/e5bf94e2-11be-4004-98fd-28c2f8284f11' \
+--header 'Authorization: <static_auth_token>'
 ```
 
 - sample response
@@ -95,7 +97,7 @@ curl --location 'https://ott-service-e3d396793179.herokuapp.com/my-list/e5bf94e2
             "type": "MOVIE",
             "addedOn": "2024-05-30T00:05:02.141Z",
             "_id": "6657c2ab156785a7f35290cf",
-            "title": ""
+            "title": "Inception"
         },
         {
             "contentId": "2673e618-5434-4043-98e8-f834e9316591",
@@ -113,9 +115,10 @@ curl --location 'https://ott-service-e3d396793179.herokuapp.com/my-list/e5bf94e2
 
 ```bash
 curl --location 'https://ott-service-e3d396793179.herokuapp.com/my-list/' \
+--header 'Authorization: <static_auth_token>' \
 --header 'Content-Type: application/json' \
 --data '{
-    "userId": "e5bf94e2-11be-4004-98fd-28c2f8284f11",    
+    "userId": "e5bf94e2-11be-4004-98fd-28c2f8284f11",
     "contentId": "16e69ebf-6ff7-427b-8007-f9a49d3be070",
     "type": "TV_SHOW"
 }'
@@ -130,8 +133,8 @@ curl --location 'https://ott-service-e3d396793179.herokuapp.com/my-list/' \
 ### Remove from My List
 
 ```bash
-curl --location --request DELETE 'https://ott-service-e3d396793179.herokuapp.com/my-list/1001'
 curl --location --request DELETE 'https://ott-service-e3d396793179.herokuapp.com/my-list/' \
+--header 'Authorization: <static_auth_token>' \
 --header 'Content-Type: application/json' \
 --data '{
     "userId": "e5bf94e2-11be-4004-98fd-28c2f8284f11",

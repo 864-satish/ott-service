@@ -7,6 +7,8 @@ import { MovieModule } from './movie/movie.module';
 import { TvShowModule } from './tvshow/tvshow.module';
 import { DatabaseModule } from './database/database.module';
 import { MigrationModule } from './database/migration/migration.module';
+import { APP_GUARD } from '@nestjs/core';
+import { Authorization } from './auth/auth.guard';
 
 @Module({
   imports: [
@@ -19,6 +21,12 @@ import { MigrationModule } from './database/migration/migration.module';
     TvShowModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    {
+      provide: APP_GUARD,
+      useClass: Authorization,
+    }
+  ],
 })
 export class AppModule { }
