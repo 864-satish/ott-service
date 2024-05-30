@@ -30,6 +30,7 @@
     "class-validator": "^0.14.1",
     "marked": "^12.0.2",
     "mongoose": "^8.4.0",
+    "node-cache": "^5.1.2",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1"
   },

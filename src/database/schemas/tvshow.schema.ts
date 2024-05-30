@@ -24,7 +24,7 @@ export class Episode {
 @Schema()
 export class TVShow {
   @Prop({ required: true })
-  id: string;
+  _id: string;
 
   @Prop({ required: true })
   title: string;

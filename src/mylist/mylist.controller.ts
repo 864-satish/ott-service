@@ -9,11 +9,13 @@ import {
   ValidationPipe,
   Res,
   HttpStatus,
-  Logger
+  Logger,
+  Query
 } from '@nestjs/common';
 import { MyListService } from './mylist.service';
 import { AddToMyListDto } from './dto/add-to-mylist.dto';
 import { DeleteFromMyListDto } from './dto/delete-from-mylist.dto';
+import { MyListQuery } from './mylist.interface';
 
 @Controller('mylist')
 export class MyListController {
@@ -23,9 +25,13 @@ export class MyListController {
   }
 
   @Get('/:userId')
-  async getMyList(@Param('userId', ParseUUIDPipe) userId: string, @Res() res) {
+  async getMyList(
+    @Param('userId', ParseUUIDPipe) userId: string,
+    @Query() query: MyListQuery,
+     @Res() res
+    ) {
     try {
-      const myList = await this.myListService.getMyList(userId);
+      const myList = await this.myListService.getMyList(userId, query);
       return res.status(HttpStatus.OK).json(myList);
     } catch (error) {
       return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({

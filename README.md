@@ -72,21 +72,76 @@ Introducing the "My List" feature on STAGE OTT, enabling users to save their fav
 curl --location 'https://ott-service-e3d396793179.herokuapp.com/'
 ```
 
+### List My items
+```bash
+curl --location 'https://ott-service-e3d396793179.herokuapp.com/my-list/e5bf94e2-11be-4004-98fd-28c2f8284f11'
+```
+
+- sample response
+```JSON
+{
+    "_id": "6657be2c96f1db9f2d1b318f",
+    "userId": "e5bf94e2-11be-4004-98fd-28c2f8284f11",
+    "items": [
+        {
+            "contentId": "16e69ebf-6ff7-427b-8007-f9a49d3be070",
+            "type": "MOVIE",
+            "addedOn": "2024-05-30T02:02:00.729Z",
+            "_id": "6657be3696f1db9f2d1b3199",
+            "title": "Batman Begins"
+        },
+        {
+            "contentId": "05936240-c953-4e09-a481-e10949ad8ca8",
+            "type": "MOVIE",
+            "addedOn": "2024-05-30T00:05:02.141Z",
+            "_id": "6657c2ab156785a7f35290cf",
+            "title": ""
+        },
+        {
+            "contentId": "2673e618-5434-4043-98e8-f834e9316591",
+            "type": "MOVIE",
+            "addedOn": "2024-05-30T02:01:56.058Z",
+            "_id": "6657cf5b40ec4b5533598fcd",
+            "title": "Tenet"
+        }
+    ],
+    "__v": 4
+}
+```
+
 ### Add to My List
 
 ```bash
-curl --location --request POST 'https://ott-service-e3d396793179.herokuapp.com/my-list/'
+curl --location 'https://ott-service-e3d396793179.herokuapp.com/my-list/' \
+--header 'Content-Type: application/json' \
+--data '{
+    "userId": "e5bf94e2-11be-4004-98fd-28c2f8284f11",    
+    "contentId": "16e69ebf-6ff7-427b-8007-f9a49d3be070",
+    "type": "TV_SHOW"
+}'
+```
+- Respone
+```JSON
+{
+    "message": "Item added to list"
+}
 ```
 
 ### Remove from My List
 
 ```bash
 curl --location --request DELETE 'https://ott-service-e3d396793179.herokuapp.com/my-list/1001'
+curl --location --request DELETE 'https://ott-service-e3d396793179.herokuapp.com/my-list/' \
+--header 'Content-Type: application/json' \
+--data '{
+    "userId": "e5bf94e2-11be-4004-98fd-28c2f8284f11",
+    "contentId": "2673e618-5434-4043-98e8-f834e9316591"
+}'
 ```
-
-### List My items
-```bash
-curl --location 'https://ott-service-e3d396793179.herokuapp.com/my-list/<userId>'
+```JSON
+{
+    "message": "Item removed from list"
+}
 ```
 
 ### To be added

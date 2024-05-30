@@ -11,6 +11,9 @@ export class MyListItem {
   @Prop({ required: true })
   type: string;
 
+  @Prop()
+  title?: string;
+
   @Prop({ default: Date.now })
   addedOn: Date;
 }
