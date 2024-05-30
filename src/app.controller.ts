@@ -7,7 +7,7 @@ export class AppController {
 
   @Get()
   @Header('Content-Type', 'text/markdown')
-  getHello(): string {
+  getHello() {
     return this.appService.getHello();
   }
 }

@@ -1,11 +1,17 @@
 import { Injectable } from '@nestjs/common';
 import * as fs from 'fs';
-import { join } from 'path';
 import { marked } from 'marked';
 
 @Injectable()
 export class AppService {
-  getHello(): string {
+  getHello() {
+
+    const readmeUrl = 'https://github.com/864-satish/ott-service/blob/master/README.md';
+    return {
+      about: readmeUrl,
+      message: 'The OTT service is up and running!',
+    }
+    /**@info : Stopping readme html
     const readmePath = 'README.md'
     const readmeContent = fs.readFileSync(readmePath, 'utf-8');
     const htmlContent = marked(readmeContent);
@@ -20,5 +26,6 @@ export class AppService {
         </body>
       </html>
     `;
+    */
   }
 }
