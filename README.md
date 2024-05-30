@@ -15,14 +15,14 @@ Introducing the "My List" feature on STAGE OTT, enabling users to save their fav
 - NestJS
 - Node.js [version: 18 or above]
 - TypeScript
-- PostgreSQL
+- MongoDB
 
 ## Installation Guide
 
 ### Prerequisites
 
 - Node.js and npm installed
-- PostgreSQL installed and running
+- MongoDB installed and running
 
 ### Steps
 
