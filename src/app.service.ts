@@ -6,7 +6,7 @@ import { marked } from 'marked';
 @Injectable()
 export class AppService {
   getHello(): string {
-    const readmePath = join(__dirname, '..', 'README.md');
+    const readmePath = 'README.md'
     const readmeContent = fs.readFileSync(readmePath, 'utf-8');
     const htmlContent = marked(readmeContent);
 

@@ -11,7 +11,7 @@
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
-    "start:prod": "node dist/main",
+    "start:prod": "node dist/src/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -24,10 +24,13 @@
     "@nestjs/config": "^3.2.2",
     "@nestjs/core": "^10.0.0",
     "@nestjs/mapped-types": "*",
+    "@nestjs/mongoose": "^10.0.6",
     "@nestjs/platform-express": "^10.0.0",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
     "marked": "^12.0.2",
+    "mongoose": "^8.4.0",
+    "node-cache": "^5.1.2",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1"
   },
@@ -50,9 +53,9 @@
     "supertest": "^6.3.3",
     "ts-jest": "^29.1.0",
     "ts-loader": "^9.4.3",
-    "ts-node": "^10.9.1",
+    "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
-    "typescript": "^5.1.3"
+    "typescript": "^5.4.5"
   },
   "jest": {
     "moduleFileExtensions": [
