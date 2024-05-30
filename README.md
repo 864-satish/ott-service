@@ -70,7 +70,8 @@ Introducing the "My List" feature on STAGE OTT, enabling users to save their fav
 ## About My List | ott-service
 
 ```bash
-curl --location 'https://ott-service-e3d396793179.herokuapp.com/'
+curl --location 'https://ott-service-e3d396793179.herokuapp.com' \
+--header 'Authorization: <static_auth_token>'
 ```
 
 ### List My items
